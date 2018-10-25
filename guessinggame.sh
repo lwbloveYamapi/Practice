@@ -1,13 +1,25 @@
-all: README.md
+#!/usr/bin/env bash
 
-README.md: guessinggame.sh
-	echo "## The Unix Workbench course assignment" > README.md
-	echo "*by Johns Hopkins University on [coursera.org](https://www.coursera.org/).*" >> README.md
-	echo "\n**Description**: make a program called *guessinggame.sh*. This program should continuously ask the user to guess the number of files in the current directory, until they guess the correct number. The user is informed if their guess is too high or too low. Once the user guesses the correct number of files in the current directory they should be congratulated." >> README.md
-	echo -n "\n**Make date**: " >> README.md
-	date >> README.md
-	echo -n "\n**Number of lines in guessinggame.sh:** " >> README.md
-	grep -c '' guessinggame.sh >> README.md
+echo "[Welcome to Guessing game v0.1]"
 
-clean:
-	rm README.md
+function ask {
+	echo "Please enter the number of files in the current directory:"
+	read guess
+    files=$(ls -1 | wc -l)
+}
+
+ask
+
+while [[ $guess -ne $files ]]
+do
+	if [[ $guess -lt $files ]] 
+	then
+		echo "Too low."
+	else
+		echo "Too high."
+	fi
+	ask
+done
+
+echo "Well done! It is the correct answer, here is the list of files:"
+echo "---" && ls -1
