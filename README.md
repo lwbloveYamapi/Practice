@@ -3,6 +3,6 @@
 
 **Description**: make a program called *guessinggame.sh*. This program should continuously ask the user to guess the number of files in the current directory, until they guess the correct number. The user is informed if their guess is too high or too low. Once the user guesses the correct number of files in the current directory they should be congratulated.
 
-**Make date**: Beijing 9:57 2018.10.25 Thu
+**Make date**: Beijing 25 10:23:16 +10 2017
 
-**Number of lines in guessinggame.sh:** 10
+**Number of lines in guessinggame.sh:** 25
